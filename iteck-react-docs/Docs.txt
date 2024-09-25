@@ -1,0 +1,7 @@
+Author           : ThemesCamp
+Docs Website     : https://docs.themescamp.com/iteck/nextjs/
+Support Center   : https://themescamp.ticksy.com/
+
+Contact          : https://www.themescamp.com/contact/
+Author URI       : https://themeforest.net/user/themescamp
+Website          : https://www.themescamp.com/
