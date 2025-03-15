@@ -1,6 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { IoArrowForward, IoArrowBack } from "react-icons/io5";
 import JohnImg from "@/images/John.jpg";
 import JaneImg from "@/images/Jane.jpg";
 import AlexImg from "@/images/Alex.jpg";
@@ -8,8 +10,10 @@ import MichaelImg from "@/images/Michael.jpg";
 import SophiaImg from "@/images/Sophia.jpg";
 import Image from "next/image";
 
+// Testimonials Data
 const testimonials = [
   {
+    id: 0,
     name: "John Smith",
     role: "CEO & Founder",
     img: JohnImg,
@@ -17,6 +21,7 @@ const testimonials = [
       "Working with this team was an absolute pleasure. They developed a seamless and intuitive UI/UX for our financial platform, improving user engagement dramatically.",
   },
   {
+    id: 1,
     name: "Jane Doe",
     role: "Product Manager",
     img: JaneImg,
@@ -24,6 +29,7 @@ const testimonials = [
       "They built a robust and scalable loan calculator for us, handling complex computations effortlessly. Their attention to detail and code quality is outstanding.",
   },
   {
+    id: 2,
     name: "Alex Johnson",
     role: "Lead Developer",
     img: AlexImg,
@@ -31,6 +37,7 @@ const testimonials = [
       "Our e-commerce website for Rapha was delivered with exceptional performance. The checkout flow and user experience significantly boosted our sales.",
   },
   {
+    id: 3,
     name: "Michael Lee",
     role: "CTO",
     img: MichaelImg,
@@ -38,6 +45,7 @@ const testimonials = [
       "They transformed our Next platform by optimizing UI and integrating a modern backend. Their expertise in frontend technologies exceeded expectations.",
   },
   {
+    id: 4,
     name: "Sophia Adams",
     role: "UX Designer",
     img: SophiaImg,
@@ -47,61 +55,107 @@ const testimonials = [
 ];
 
 export default function Testimonials() {
-  const [currentIndex, setCurrentIndex] = useState(1); // Middle item in focus
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [cardsPerView, setCardsPerView] = useState(3);
 
+  // Dynamically update number of cards per view based on screen size
+  useEffect(() => {
+    const updateCardsPerView = () => {
+      if (window.innerWidth < 640) {
+        setCardsPerView(1); // Mobile screens (1 card)
+      } else if (window.innerWidth < 1024) {
+        setCardsPerView(2); // Tablet screens (2 cards)
+      } else {
+        setCardsPerView(3); // Desktop screens (3 cards)
+      }
+    };
+
+    updateCardsPerView();
+    window.addEventListener("resize", updateCardsPerView);
+    return () => window.removeEventListener("resize", updateCardsPerView);
+  }, []);
+
+  // Move forward
   const nextTestimonial = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === testimonials.length - 2 ? prevIndex : prevIndex + 1
-    );
+    if (currentIndex + cardsPerView < testimonials.length) {
+      setCurrentIndex((prev) => prev + cardsPerView);
+    }
   };
 
+  // Move backward (NOW FIXED)
   const prevTestimonial = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? prevIndex : prevIndex - 1
-    );
+    if (currentIndex - cardsPerView >= 0) {
+      setCurrentIndex((prev) => prev - cardsPerView);
+    } else {
+      setCurrentIndex(0); // Reset completely to John Smith on full back
+    }
   };
 
   return (
-    <section className="bg-gray-100 py-16">
-      <div className="max-w-6xl mx-auto text-center">
-        <h2 className="text-4xl font-bold text-gray-900">Here is why people love us</h2>
-        <p className="text-gray-600 mt-2">See what our customers are saying</p>
-      </div>
+    <section className="bg-[#F9F9F9] py-16 px-6">
+      <div className="max-w-6xl mx-auto relative">
+        {/* Section Title */}
+        <div className="flex justify-between items-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-[#3D2C19]">
+            Here is why people love us
+          </h2>
 
-      {/* Testimonials Carousel */}
-      <div className="relative flex justify-center items-center mt-10">
-        {/* Left Arrow */}
-        <button
-          onClick={prevTestimonial}
-          className="absolute left-0 ml-6 text-2xl font-bold text-gray-700 hover:text-gray-900"
-          disabled={currentIndex === 0}
-        >
-          ❮
-        </button>
+          {/* Single Arrow (Switches Functionality at Last Item) */}
+          <motion.button
+            onClick={currentIndex + cardsPerView >= testimonials.length ? prevTestimonial : nextTestimonial}
+            className="text-black bg-white p-3 rounded-full shadow-md text-lg hover:bg-[#3D2C19] hover:text-white transition-all"
+            whileHover={{ scale: 1.1 }}
+          >
+            <AnimatePresence mode="wait">
+              {currentIndex + cardsPerView >= testimonials.length ? (
+                <motion.div
+                  key="back"
+                  initial={{ opacity: 0, rotate: 180 }}
+                  animate={{ opacity: 1, rotate: 0 }}
+                  exit={{ opacity: 0, rotate: -180 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <IoArrowBack size={20} />
+                </motion.div>
+              ) : (
+                <motion.div
+                  key="forward"
+                  initial={{ opacity: 0, rotate: -180 }}
+                  animate={{ opacity: 1, rotate: 0 }}
+                  exit={{ opacity: 0, rotate: 180 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <IoArrowForward size={20} />
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </motion.button>
+        </div>
 
-        {/* Testimonials Wrapper */}
-        <div className="overflow-hidden w-full max-w-5xl px-4">
+        {/* Responsive Testimonials Carousel */}
+        <div className="relative overflow-hidden mt-10 max-w-5xl mx-auto">
           <div
             className="flex transition-transform duration-500 ease-in-out"
-            style={{ transform: `translateX(-${currentIndex * 33.3}%)` }}
+            style={{
+              transform: `translateX(-${currentIndex * (100 / cardsPerView)}%)`,
+            }}
           >
             {testimonials.map((testimonial, index) => (
-              <div
+              <motion.div
                 key={index}
-                className={`w-1/3 flex-shrink-0 px-4 transform transition-all duration-300 ${
-                  index === currentIndex
-                    ? "scale-105 opacity-100"
-                    : "scale-90 opacity-60"
-                }`}
+                className="w-full sm:w-1/2 lg:w-1/3 flex-shrink-0 px-4 transition-all duration-300"
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5 }}
               >
-                <div className="bg-[#113162] text-white p-8 rounded-xl shadow-lg h-[280px] flex flex-col justify-between">
+                <div className="bg-[#D6C7B2] text-black p-6 md:p-8 rounded-xl shadow-lg min-h-[280px] flex flex-col justify-between transition-all duration-300">
                   <p className="text-md leading-relaxed">{testimonial.feedback}</p>
                   <div className="mt-6 flex items-center">
                     <Image
-                      src={testimonial.img.src} // Use imported image source
+                      src={testimonial.img}
                       alt={testimonial.name}
-                      width={35} // Set width explicitly
-                      height={35} // Set height explicitly
+                      width={40}
+                      height={40}
                       className="w-12 h-12 rounded-full border-2 border-white"
                     />
                     <div className="ml-4">
@@ -110,19 +164,10 @@ export default function Testimonials() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
-
-        {/* Right Arrow */}
-        <button
-          onClick={nextTestimonial}
-          className="absolute right-0 mr-6 text-2xl font-bold text-gray-700 hover:text-gray-900"
-          disabled={currentIndex === testimonials.length - 2}
-        >
-          ❯
-        </button>
       </div>
     </section>
   );

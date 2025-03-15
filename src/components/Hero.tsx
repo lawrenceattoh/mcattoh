@@ -1,27 +1,45 @@
-import BackgroundImage from '../background/jut9.jpg'; // Adjust path as needed
+import Image from "next/image";
+import HeroIllustration from "@/images/Hero_Illustration.png"; // Ensure correct path
 
-export default function Hero() {
+const Hero = () => {
   return (
-    <section className="relative text-center py-20 px-4 sm:py-28 sm:px-6 bg-white z-10">
-      {/* Background Image */}
-      <div 
-        className="absolute top-0 left-0 w-full h-full bg-no-repeat bg-cover bg-center pointer-events-none z-0"
-        style={{ backgroundImage: `url(${BackgroundImage.src})` }}
-      ></div>
+    <section className="bg-[#F7F7F7] py-12 sm:py-16 md:py-24 lg:py-24">
+      <div className="max-w-[1440px] mx-auto px-6 flex flex-col-reverse md:flex-row items-center">
+        
+        {/* Left Content */}
+        <div className="w-full md:w-[50%] lg:w-[45%] text-center md:text-left 
+        mt-0 sm:mt-4 md:mt-10 lg:mt-0"> {/* Moved text lower on iPad */}
+        
+          <h1 className="text-[36px] sm:text-[42px] md:text-[50px] lg:text-[56px] font-extrabold leading-[1.2] text-gray-900">
+            Where Cutting-Edge <br />
+            Technology Meets <br />
+            <span className="text-[#8C6239]">Exceptional Design</span>
+          </h1>
+          <p className="mt-4 text-[16px] sm:text-[18px] md:text-[20px] text-gray-700 leading-[1.5]">
+            We craft seamless, AI-powered solutions and BCI technology, blending
+            innovation with functionality for founders and executives.
+          </p>
+          <div className="mt-5">
+            <button className="px-6 py-3 bg-[#113162] text-white rounded-full text-[16px] sm:text-[18px] font-semibold shadow-md hover:bg-gray-800 transition-all">
+              Let’s Build Together
+            </button>
+          </div>
+        </div>
 
-      {/* Content */}
-      <div className="relative z-10 max-w-[90%] sm:max-w-5xl mx-auto mt-8">
-        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight">
-          Revolutionizing Innovation with Software, AI, and BCI Solutions
-        </h1>
-        <p className="text-lg sm:text-xl text-gray-600 mt-4 sm:mt-6 max-w-xl sm:max-w-3xl mx-auto">
-        We are a development, AI, and data science studio specializing in custom software, website, and mobile app development. Our expertise includes AI-driven solutions, machine learning models, computer vision, NLP, and Brain-Computer Interface (BCI) technology, empowering businesses with cutting-edge innovation.
-        </p>
-        <button className="mt-6 sm:mt-8 px-5 sm:px-6 py-2 sm:py-3 bg-[#113162] text-white rounded-full text-base sm:text-lg font-medium shadow-md hover:bg-gray-800 transition-all">
-  LET&apos;S BUILD TOGETHER
-</button>
-
+        {/* Right Illustration */}
+        <div className="w-full md:w-[50%] lg:w-[55%] flex justify-center md:justify-end">
+          <Image
+            src={HeroIllustration}
+            alt="Illustration of a designer at work"
+            width={650} // Adjusted for better responsiveness
+            height={500}
+            className="object-contain"
+            priority
+          />
+        </div>
       </div>
     </section>
   );
-}
+};
+
+export default Hero;

@@ -1,12 +1,13 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { FaBars, FaChevronDown } from "react-icons/fa";
+import { FaBars } from "react-icons/fa";
 import { IoMdClose } from "react-icons/io";
+import { MdOutlineWork, MdOutlineContactMail } from "react-icons/md";
+import { AiOutlineHome } from "react-icons/ai";
 import Image from "next/image";
-import LogoBlack from '../logo/PNG/Black.png';
-// import LogoWhite from '../logo/PNG/White.png';
-import LogoColored from '../logo/PNG/Colored.png';
+import LogoBlack from "../logo/PNG/Black.png";
+import LogoColored from "../logo/PNG/Colored.png";
 import Link from "next/link";
 
 const Navbar = () => {
@@ -35,35 +36,22 @@ const Navbar = () => {
         </Link>
 
         {/* Desktop Navigation */}
-        <ul className="hidden md:flex space-x-6 font-medium">
-          <li><a href="#" className="hover:text-gray-500">About</a></li>
-          <li><a href="#" className="hover:text-gray-500">Work</a></li>
-          <li className="relative group">
-            <a href="#" className="hover:text-gray-500 flex items-center">
-              Solutions <FaChevronDown className="ml-1" />
-            </a>
-            <div className="absolute left-0 hidden group-hover:block bg-white text-black mt-2 p-3 shadow-lg rounded-lg">
-              <a href="#" className="block hover:text-gray-700 py-1">AI</a>
-              <a href="#" className="block hover:text-gray-700 py-1">BCI</a>
-              <a href="#" className="block hover:text-gray-700 py-1">Cloud</a>
-            </div>
-          </li>
-          <li className="relative group">
-            <a href="#" className="hover:text-gray-500 flex items-center">
-              Resources <FaChevronDown className="ml-1" />
-            </a>
-            <div className="absolute left-0 hidden group-hover:block bg-white text-black mt-2 p-3 shadow-lg rounded-lg">
-              <a href="#" className="block hover:text-gray-700 py-1">Blog</a>
-              <a href="#" className="block hover:text-gray-700 py-1">Case Studies</a>
-              <a href="#" className="block hover:text-gray-700 py-1">Whitepapers</a>
-            </div>
-          </li>
+        <ul className="hidden md:flex space-x-12 font-medium">
+          <Link href="/services" className="hover:text-gray-500 transition">
+            Services
+          </Link>
+          <Link href="/work" className="hover:text-gray-500 transition">
+            Work
+          </Link>
+          <Link href="/about" className="hover:text-gray-500 transition">
+            About
+          </Link>
         </ul>
 
         {/* CTA Button */}
-        <a href="#" className="hidden md:block px-4 py-2 rounded-full text-sm font-semibold shadow-lg bg-[#113162] text-white hover:bg-gray-800 transition-all">
-          GET IN TOUCH
-        </a>
+        <Link href="/contact" className="hidden md:block px-4 py-2 rounded-full text-sm font-semibold shadow-lg bg-[#113162] text-white hover:bg-gray-800 transition-all">
+  GET IN TOUCH
+</Link>
 
         {/* Mobile Menu Button */}
         <button className="md:hidden text-2xl focus:outline-none" onClick={() => setMenuOpen(!menuOpen)}>
@@ -72,16 +60,41 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Menu */}
-      <div className={`fixed inset-0 bg-white z-40 transform ${menuOpen ? "translate-x-0" : "-translate-x-full"} transition-transform duration-300 md:hidden`}>
-        <div className="p-6 space-y-6">
-          <button className="absolute top-4 right-4 text-2xl" onClick={() => setMenuOpen(false)}>
-            <IoMdClose />
-          </button>
-          <a href="#" className="block py-2 text-lg">About</a>
-          <a href="#" className="block py-2 text-lg">Work</a>
-          <a href="#" className="block py-2 text-lg">Solutions</a>
-          <a href="#" className="block py-2 text-lg">Resources</a>
-          <a href="#" className="block bg-[#113162] text-white text-center py-2 mt-2 rounded-md">GET IN TOUCH</a>
+      <div
+        className={`fixed inset-0 bg-black bg-opacity-90 z-40 flex flex-col items-center justify-center transform ${
+          menuOpen ? "translate-x-0" : "-translate-x-full"
+        } transition-transform duration-300 md:hidden`}
+      >
+        <button className="absolute top-5 right-6 text-white text-3xl" onClick={() => setMenuOpen(false)}>
+          <IoMdClose />
+        </button>
+
+        {/* Mobile Menu Content */}
+        <div className="flex flex-col items-center space-y-6">
+          {/* Logo Centered */}
+          <Image src={LogoColored} alt="Logo" className="w-40 mb-8" />
+
+          {/* Menu Links */}
+          <Link href="/services" className="text-white text-xl flex items-center space-x-2 hover:text-gray-300 transition">
+            <AiOutlineHome size={24} />
+            <span>Services</span>
+          </Link>
+          <Link href="/work" className="text-white text-xl flex items-center space-x-2 hover:text-gray-300 transition">
+            <MdOutlineWork size={24} />
+            <span>Work</span>
+          </Link>
+          <Link href="/about" className="text-white text-xl flex items-center space-x-2 hover:text-gray-300 transition">
+            <MdOutlineContactMail size={24} />
+            <span>About</span>
+          </Link>
+
+          {/* CTA Button - Get in Touch */}
+          <a
+            href="/contact"
+            className="mt-6 px-6 py-3 rounded-full text-lg font-semibold shadow-lg bg-[#113162] text-white hover:bg-gray-700 transition"
+          >
+            GET IN TOUCH
+          </a>
         </div>
       </div>
     </nav>
