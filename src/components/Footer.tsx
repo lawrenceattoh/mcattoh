@@ -24,7 +24,12 @@ const Footer = () => {
             <a href="#" className="text-gray-400 hover:text-white text-lg">
               <FaTwitter />
             </a>
-            <a href="#" className="text-gray-400 hover:text-white text-lg">
+            <a
+              href="https://www.linkedin.com/company/mcattoh"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-400 hover:text-white text-lg"
+            >
               <FaLinkedinIn />
             </a>
           </div>
