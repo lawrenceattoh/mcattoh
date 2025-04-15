@@ -8,6 +8,7 @@ import { AiOutlineHome } from "react-icons/ai";
 import Image from "next/image";
 import LogoBlack from "../logo/PNG/Black.png";
 import LogoColored from "../logo/PNG/Colored.png";
+import LogoWhite from '../logo/PNG/White.png'
 import Link from "next/link";
 
 const Navbar = () => {
@@ -72,7 +73,7 @@ const Navbar = () => {
         {/* Mobile Menu Content */}
         <div className="flex flex-col items-center space-y-6">
           {/* Logo Centered */}
-          <Image src={LogoColored} alt="Logo" className="w-40 mb-8" />
+          <Image src={LogoWhite} alt="Logo" className="w-40 mb-8" />
 
           {/* Menu Links */}
           <Link href="/services" className="text-white text-xl flex items-center space-x-2 hover:text-gray-300 transition">
