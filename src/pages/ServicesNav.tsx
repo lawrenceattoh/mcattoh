@@ -24,11 +24,17 @@ const services = [
     title: "Product Design",
     desc: "User-centric designs blending aesthetics with functionality to create seamless and engaging digital experiences. Our approach ensures innovation, usability, and a strong brand presence.",
   },
+  // {
+  //   id: "04",
+  //   title: "Brain-Computer Interface Solutions",
+  //   desc: "Bridging brain and technology to unlock new possibilities in healthcare, gaming, and accessibility. Our innovative BCI solutions empower seamless human-computer interaction.",
+  // },
   {
     id: "04",
-    title: "Brain-Computer Interface Solutions",
-    desc: "Bridging brain and technology to unlock new possibilities in healthcare, gaming, and accessibility. Our innovative BCI solutions empower seamless human-computer interaction.",
-  },
+    title: "AI for Healthcare",
+    desc: "We develop intelligent AI/ML models to aid in early detection of chronic diseases such as cancer and diabetes. Our goal is to empower healthcare providers with accurate, data-driven insights that improve patient outcomes.",
+  }
+  
 ];
 
 
@@ -78,21 +84,36 @@ const servicesDetails = [
       "User Research & Testing – Data-driven design decisions based on in-depth user behavior analysis.",
     ],
   },
+  // {
+  //   id: "04",
+  //   title: "Brain-Computer Interface (BCI) Solutions",
+  //   subtitle:
+  //     "Revolutionizing Human-Computer Interaction Through Neurotechnology",
+  //   content: `Brain-Computer Interfaces (BCIs) are transforming the way humans interact with technology, unlocking new possibilities in healthcare, gaming, and accessibility solutions. Our team specializes in cutting-edge neurotechnology solutions that harness the power of the human brain to control and interact with digital systems.
+    
+  //   Our BCI research and development focus on enhancing cognitive capabilities, improving accessibility, and driving the future of human-computer synergy.`,
+  //   features: [
+  //     "Neurotechnology & Signal Processing – Advanced algorithms that decode brain signals.",
+  //     "EEG-Based BCI Applications – Brain-controlled interfaces for hands-free interaction.",
+  //     "Assistive & Augmentative Technologies – Empowering individuals with disabilities.",
+  //     "Brain-Controlled Interfaces for Healthcare & Gaming – Enabling new levels of interaction.",
+  //   ],
+  // },
   {
     id: "04",
-    title: "Brain-Computer Interface (BCI) Solutions",
-    subtitle:
-      "Revolutionizing Human-Computer Interaction Through Neurotechnology",
-    content: `Brain-Computer Interfaces (BCIs) are transforming the way humans interact with technology, unlocking new possibilities in healthcare, gaming, and accessibility solutions. Our team specializes in cutting-edge neurotechnology solutions that harness the power of the human brain to control and interact with digital systems.
-    
-    Our BCI research and development focus on enhancing cognitive capabilities, improving accessibility, and driving the future of human-computer synergy.`,
+    title: "AI for Healthcare",
+    subtitle: "Transforming Patient Care Through Predictive Intelligence",
+    content: `We build and deploy AI and machine learning models that empower healthcare providers with advanced diagnostic capabilities. Our solutions focus on early detection and risk prediction for diseases such as cancer, diabetes, and cardiovascular conditions.
+  
+    By integrating clinical data and advanced algorithms, we offer tools that assist doctors in making timely and accurate decisions, leading to better patient care and outcomes.`,
     features: [
-      "Neurotechnology & Signal Processing – Advanced algorithms that decode brain signals.",
-      "EEG-Based BCI Applications – Brain-controlled interfaces for hands-free interaction.",
-      "Assistive & Augmentative Technologies – Empowering individuals with disabilities.",
-      "Brain-Controlled Interfaces for Healthcare & Gaming – Enabling new levels of interaction.",
+      "Early Detection Models for Cancer & Diabetes – Predictive systems based on patient data and biomarkers.",
+      "Clinical Decision Support – AI-assisted diagnostics to guide healthcare professionals.",
+      "Medical Image Analysis – Automating interpretation of scans and X-rays using deep learning.",
+      "Healthcare Data Integration – Building pipelines that unify EHR, lab results, and wearable data.",
     ],
-  },
+  }
+  
 ];
 
 // Function for Smooth Scrolling with Centered Focus

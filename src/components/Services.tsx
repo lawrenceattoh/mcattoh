@@ -47,19 +47,33 @@ const services = [
     icon: LeftIcon,
     align: "left",
   },
+  // {
+  //   title: "Brain-Computer Interface (BCI) Solutions",
+  //   description:
+  //     "Pioneering the future of human-computer interaction, we develop innovative BCI solutions that bridge the gap between the brain and technology. Our solutions empower industries ranging from healthcare to gaming and beyond.",
+  //   points: [
+  //     "Neurotechnology & Signal Processing",
+  //     "EEG-Based BCI Applications",
+  //     "Assistive & Augmentative Technologies",
+  //     "Brain-Controlled Interfaces for Healthcare & Gaming",
+  //   ],
+  //   icon: RightIcon,
+  //   align: "right",
+  // },
   {
-    title: "Brain-Computer Interface (BCI) Solutions",
+    title: "AI for Healthcare",
     description:
-      "Pioneering the future of human-computer interaction, we develop innovative BCI solutions that bridge the gap between the brain and technology. Our solutions empower industries ranging from healthcare to gaming and beyond.",
+      "We apply machine learning and AI to transform healthcare delivery, focusing on early detection, diagnostics, and decision support. Our solutions empower healthcare providers with timely insights and predictive intelligence.",
     points: [
-      "Neurotechnology & Signal Processing",
-      "EEG-Based BCI Applications",
-      "Assistive & Augmentative Technologies",
-      "Brain-Controlled Interfaces for Healthcare & Gaming",
+      "AI/ML Models for Early Disease Detection",
+      "Cancer & Diabetes Prediction Systems",
+      "Clinical Decision Support Tools",
+      "Medical Image & Data Analysis",
     ],
-    icon: RightIcon,
+    icon: RightIcon, // You can swap with a more medical-themed illustration if available
     align: "right",
-  },
+  }
+  
 ];
 
 export default function Services() {
