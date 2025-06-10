@@ -5,7 +5,7 @@ import Image from "next/image";
 import Message_Sending_1 from "@/images/Message_Sending_1_.png"; // Ensure correct path
 import { sendEmail } from "../utils/emailService"; // Import the function
 
-const newsletterTemplateID = "template_85q4jaqz-"; // Use your actual EmailJS template ID
+const newsletterTemplateID = "template_85q4jaq"; // Use your actual EmailJS template ID
 
 export default function Newsletter() {
   const [formData, setFormData] = useState({

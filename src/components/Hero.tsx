@@ -21,12 +21,19 @@ const Hero = () => {
             We craft seamless, AI-powered solutions and BCI technology, blending
             innovation with functionality for founders and executives.
           </p> */}
-          <p className="mt-4 text-[16px] sm:text-[18px] md:text-[20px] text-gray-700 leading-[1.5]">
+          {/* <p className="mt-4 text-[16px] sm:text-[18px] md:text-[20px] text-gray-700 leading-[1.5]">
             We craft seamless, AI-powered solutions, building intelligent
             systems for early detection of critical conditions like cancer and
             diabetes. Our work blends innovation with real-world impact for
             founders and executives.
+          </p> */}
+          {/* <p className="mt-4 text-[16px] sm:text-[18px] md:text-[20px] text-gray-700 leading-[1.5]">
+            We are an AI Studio that partners with visionary teams to build intelligent, AI-powered products. From automation and data science to computer vision and generative AI, we deliver innovative solutions tailored to real-world impact.
+          </p> */}
+           <p className="mt-4 text-[16px] sm:text-[18px] md:text-[20px] text-gray-700 leading-[1.5]">
+            We build bold, AI-powered products that drive real results. From automating workflows to creating next-gen customer experiences, we help ambitious brands unlock the full potential of artificial intelligence fast. Whether it’s vision, language, or data, we turn complexity into clarity for our clients.
           </p>
+
           <div className="mt-5">
             <button className="px-6 py-3 bg-[#113162] text-white rounded-full text-[16px] sm:text-[18px] font-semibold shadow-md hover:bg-gray-800 transition-all">
               Let’s Build Together
