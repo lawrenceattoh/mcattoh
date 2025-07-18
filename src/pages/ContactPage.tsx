@@ -82,7 +82,7 @@ export default function ContactPage() {
                 📧 <strong>Email</strong>
                 <br />
                 <a
-                  href="mailto:support@mcattohai.com"
+                  href="mailto:lawrenceattoh@ymail.com"
                   className="text-blue-700 hover:underline"
                 >
                   support@mcattoh.com
