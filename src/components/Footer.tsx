@@ -73,7 +73,7 @@ const Footer = () => {
           <p className="text-gray-400 text-sm">United Kingdom, UB8 3DN</p>
           {/* <p className="text-gray-400 text-sm mt-2">Email: support@mcattoh.com</p> */}
           <p className="text-gray-400 text-sm mt-2">
-            Email: <a href="mailto:lawrenceattoh@ymail.com">support@mcattoh.com</a>
+            Email: <a href="mailto:support@mcattoh.com">support@mcattoh.com</a>
           </p>
         </div>
       </div>
