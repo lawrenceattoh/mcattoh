@@ -80,7 +80,7 @@ const Footer = () => {
 
       {/* Copyright Section */}
       <p className="text-center text-gray-500 text-sm mt-10">
-        © 2025 MCATTOH AI | All rights reserved.
+        © 2026 MCATTOH AI | All rights reserved.
       </p>
     </footer>
   );
